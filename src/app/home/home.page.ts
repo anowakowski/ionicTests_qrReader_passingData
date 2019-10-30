@@ -26,7 +26,7 @@ export class HomePage {
       );
     }
 
-    downloadQR () {
+    downloadQR() {
 
     }
 
