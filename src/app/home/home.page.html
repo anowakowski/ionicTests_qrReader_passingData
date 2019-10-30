@@ -8,10 +8,25 @@
 
 <ion-content>
 
-
+  <ion-item>
+    <ion-input type="text" placeholder="MY QR code data" [(ngModel)]="qrData">
+    </ion-input>
+  </ion-item>
+  
+  <ion-segment [(ngModel)]="elementType">
+    <ion-segment-button value="canvas">
+      <ion-label>Canvas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="img">
+      <ion-label>Image</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="url">
+      <ion-label>URL</ion-label>
+    </ion-segment-button>
+  </ion-segment>
   <ngx-qrcode 
       [qrc-element-type]="elementType" 
-      [qrc-value] = "qrData">
+      [qrc-value]="qrData">
   </ngx-qrcode>
 
 </ion-content>

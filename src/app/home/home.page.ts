@@ -19,7 +19,11 @@ export class HomePage {
     private toastCtrl: ToastController) {}
 
     scanCode() {
-      
+      this.barcodeScanner.scan().then(
+        barcodeData => {
+          this.scannedCode = barcodeData;
+        }
+      );
     }
 
     downloadQR () {
