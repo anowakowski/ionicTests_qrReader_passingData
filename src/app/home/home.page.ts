@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  qrData = 'https://ionicacademy.com/';
+  scannedCode = null;
+  elementType: 'url' | 'canvas' | 'img' = 'canvas';
 
-  constructor() {}
+  constructor(
+    private barcodeScanner: BarcodeScanner,
+    private base64ToGallery: Base64ToGallery,
+    private toastCtrl: ToastController) {}
+
+    scanCode() {
+      
+    }
+
+    downloadQR () {
+
+    }
 
 }

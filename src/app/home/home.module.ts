@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    NgxQRCodeModule,
+    
     RouterModule.forChild([
       {
         path: '',
