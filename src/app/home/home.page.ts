@@ -21,13 +21,25 @@ export class HomePage {
     scanCode() {
       this.barcodeScanner.scan().then(
         barcodeData => {
-          this.scannedCode = barcodeData;
+          this.scannedCode = barcodeData.text;
         }
       );
     }
 
     downloadQR() {
+      const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+      const imageData = canvas.toDataURL('image/jpeg').toString();
+      console.log('data: ', imageData);
 
+      let data = imageData.split(',')[1];
+
+      this.base64ToGallery.base64ToGallery(data,
+        { prefix: '_img', mediaScanner: true })
+        .then(async res => {
+          let toast = await this.toastCtrl.create({
+            header: 'QR Code save in your photoLibrary'
+          });
+        }, err => console.log('err" ', err));
     }
 
 }
