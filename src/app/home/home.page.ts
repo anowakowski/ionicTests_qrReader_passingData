@@ -46,10 +46,18 @@ export class HomePage {
 
     openDetaislWithQueryParams() {
       let user = {
-        name: 'Janek',
-        surname: 'Nowak'
+        name: 'Simon Grimm',
+        website: 'www.ionicacademy.com',
+        address: {
+          zip: 48149,
+          city: 'Muenster',
+          country: 'DE'
+        },
+        interests: [
+          'Ionic', 'Angular', 'YouTube', 'Sports'
+        ]
       };
-
+     
       let navigationExtras: NavigationExtras = {
         queryParams: {
           special: JSON.stringify(user)

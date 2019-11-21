@@ -14,7 +14,7 @@ export class DetailsPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       console.log(params.special);
       if (params && params.special) {
-        this.data = params.special;
+        this.data = JSON.parse(params.special);
       }
     });
   }
