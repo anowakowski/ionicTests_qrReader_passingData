@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
+import { DataService } from './services/data.service';
 
 @NgModule({
    declarations: [
@@ -27,7 +28,8 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
       SplashScreen,
       { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
       BarcodeScanner,
-      Base64ToGallery
+      Base64ToGallery,
+      DataService
    ],
    bootstrap: [
       AppComponent

@@ -3,6 +3,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { ToastController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,25 @@ export class HomePage {
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
 
+  user = {
+    name: 'Simon Grimm',
+    website: 'www.ionicacademy.com',
+    address: {
+      zip: 48149,
+      city: 'Muenster',
+      country: 'DE'
+    },
+    interests: [
+      'Ionic', 'Angular', 'YouTube', 'Sports'
+    ]
+  };
+
   constructor(
     private barcodeScanner: BarcodeScanner,
     private base64ToGallery: Base64ToGallery,
     private toastCtrl: ToastController,
-    private router: Router) {}
+    private router: Router,
+    private dataService: DataService) {}
 
     scanCode() {
       this.barcodeScanner.scan().then(
@@ -45,29 +60,17 @@ export class HomePage {
     }
 
     openDetaislWithQueryParams() {
-      let user = {
-        name: 'Simon Grimm',
-        website: 'www.ionicacademy.com',
-        address: {
-          zip: 48149,
-          city: 'Muenster',
-          country: 'DE'
-        },
-        interests: [
-          'Ionic', 'Angular', 'YouTube', 'Sports'
-        ]
-      };
-     
       let navigationExtras: NavigationExtras = {
         queryParams: {
-          special: JSON.stringify(user)
+          special: JSON.stringify(this.user)
         }
       };
       this.router.navigate(['details'], navigationExtras);
     }
 
     openDetailsWithService() {
-
+      this.dataService.setData(42, this.user);
+      this.router.navigateByUrl('/details/42');
     }
 
     openDetailsWithState() {

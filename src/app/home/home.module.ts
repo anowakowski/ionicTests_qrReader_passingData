@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { DataService } from '../services/data.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,6 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     FormsModule,
     IonicModule,
     NgxQRCodeModule,
-    
     RouterModule.forChild([
       {
         path: '',
