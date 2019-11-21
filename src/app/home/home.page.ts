@@ -45,9 +45,14 @@ export class HomePage {
     }
 
     openDetaislWithQueryParams() {
+      let user = {
+        name: 'Janek',
+        surname: 'Nowak'
+      };
+
       let navigationExtras: NavigationExtras = {
         queryParams: {
-          special: 'whatever'
+          special: JSON.stringify(user)
         }
       };
       this.router.navigate(['details'], navigationExtras);
