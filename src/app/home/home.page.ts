@@ -42,4 +42,15 @@ export class HomePage {
         }, err => console.log('err" ', err));
     }
 
+    openDetaislWithQueryParams() {
+      
+    }
+
+    openDetailsWithService() {
+
+    }
+
+    openDetailsWithState() {
+
+    }
 }
