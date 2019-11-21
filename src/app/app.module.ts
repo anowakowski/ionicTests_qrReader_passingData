@@ -24,7 +24,10 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
    ],
    providers: [
       StatusBar,
-      SplashScreen
+      SplashScreen,
+      { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+      BarcodeScanner,
+      Base64ToGallery
    ],
    bootstrap: [
       AppComponent
