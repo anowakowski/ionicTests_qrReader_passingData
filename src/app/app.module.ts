@@ -11,12 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
-import { DetailsComponent } from './details/details.component';
 
 @NgModule({
    declarations: [
-      AppComponent,
-      DetailsComponent
+      AppComponent
    ],
    entryComponents: [],
    imports: [
@@ -26,8 +24,7 @@ import { DetailsComponent } from './details/details.component';
    ],
    providers: [
       StatusBar,
-      SplashScreen,
-      provide
+      SplashScreen
    ],
    bootstrap: [
       AppComponent

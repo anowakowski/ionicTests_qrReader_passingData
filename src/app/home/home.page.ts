@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { ToastController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomePage {
   constructor(
     private barcodeScanner: BarcodeScanner,
     private base64ToGallery: Base64ToGallery,
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private router: Router) {}
 
     scanCode() {
       this.barcodeScanner.scan().then(
@@ -43,7 +45,12 @@ export class HomePage {
     }
 
     openDetaislWithQueryParams() {
-      
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          special: 'whatever'
+        }
+      };
+      this.router.navigate(['details'], navigationExtras);
     }
 
     openDetailsWithService() {
