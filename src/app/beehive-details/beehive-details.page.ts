@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-beehive-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeehiveDetailsPage implements OnInit {
 
-  constructor() { }
+  data: any;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    if (this.route.snapshot.data['qrCodeData']) {
+      this.data = this.route.snapshot.data['qrCodeData'];
+      console.log(this.data);
+    }
   }
 
 }

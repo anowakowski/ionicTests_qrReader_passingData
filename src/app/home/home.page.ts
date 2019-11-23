@@ -70,14 +70,20 @@ export class HomePage {
     }
 
     openDetailsWithService() {
-      this.dataService.setData(42, this.user);
-      this.router.navigateByUrl('/details/42');
+      //this.prepareDataForDetailsPage();
+      this.openDetailPageWithQrCodeData();
     }
 
     openDetailsWithState() {}
 
     openDetailPageWithQrCodeData() {
+      this.scannedCode = 'test';
       this.dataService.setData(1, this.scannedCode);
-      this.router.navigateByUrl('')
+      this.router.navigateByUrl('/beehive-details/1');
+    }
+
+    private prepareDataForDetailsPage() {
+      this.dataService.setData(42, this.user);
+      this.router.navigateByUrl('/details/42');
     }
 }
