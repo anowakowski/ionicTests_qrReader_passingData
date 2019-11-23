@@ -5,21 +5,21 @@ import { DataResolverService } from './resolver/data-resolver.service';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  // { path: 'details', loadChildren: './details/details.module#DetailsPageModule' },
-  // {
-  //   path: 'details/:id',
-  //   resolve: {
-  //     special: DataResolverService
-  //   },
-  //   loadChildren: './details/details.module#DetailsPageModule'
-  // },
+  { path: 'details', loadChildren: './details/details.module#DetailsPageModule' },
+  {
+    path: 'details/:id',
+    resolve: {
+      special: DataResolverService
+    },
+    loadChildren: './details/details.module#DetailsPageModule'
+  },
   { path: 'beehive-details', loadChildren: './beehive-details/beehive-details.module#BeehiveDetailsPageModule' },
   {
     path: 'beehive-details/:id',
     resolve: {
       qrCodeData: DataResolverService
     },
-    loadChildren: './details/details.module#DetailsPageModule'
+    loadChildren: './beehive-details/beehive-details.module#BeehiveDetailsPageModule'
   },
 ];
 
