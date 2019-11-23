@@ -70,8 +70,8 @@ export class HomePage {
     }
 
     openDetailsWithService() {
-      this.prepareDataForDetailsPage();
-      //this.openDetailPageWithQrCodeData();
+      //this.prepareDataForDetailsPage();
+      this.openDetailPageWithQrCodeData();
     }
 
     openDetailsWithState() {}
