@@ -39,6 +39,7 @@ export class HomePage {
       this.barcodeScanner.scan().then(
         barcodeData => {
           this.scannedCode = barcodeData.text;
+
         }
       );
     }
@@ -73,7 +74,10 @@ export class HomePage {
       this.router.navigateByUrl('/details/42');
     }
 
-    openDetailsWithState() {
+    openDetailsWithState() {}
 
+    openDetailPageWithQrCodeData() {
+      this.dataService.setData(1, this.scannedCode);
+      this.router.navigateByUrl('')
     }
 }

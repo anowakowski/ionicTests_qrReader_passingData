@@ -12,7 +12,8 @@ const routes: Routes = [
       special: DataResolverService
     },
     loadChildren: './details/details.module#DetailsPageModule'
-  }
+  },
+  { path: 'beehive-details', loadChildren: './beehive-details/beehive-details.module#BeehiveDetailsPageModule' }
 ];
 
 @NgModule({
